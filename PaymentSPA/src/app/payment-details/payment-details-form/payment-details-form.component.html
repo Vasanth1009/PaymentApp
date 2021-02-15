@@ -1,0 +1,72 @@
+<form novalidate #form="ngForm" (submit)="onSubmit(form)">
+  <input
+    type="hidden"
+    name="paymentDetailsId"
+    [value]="service.formData.paymentDetailsId"
+  />
+  <div class="form-group">
+    <label>CARD HOLDER NAME</label>
+    <input
+      name="cardHolderName"
+      class="form-control form-control-lg"
+      placeholder="Name on card"
+      #cardHolderName="ngModel"
+      [(ngModel)]="service.formData.cardHolderName"
+      required
+      [class.invalid]="cardHolderName.invalid && cardHolderName.touched"
+    />
+  </div>
+  <div class="form-group">
+    <label>CARD NUMBER</label>
+    <input
+      type="text"
+      name="cardNumber"
+      class="form-control form-control-lg"
+      placeholder="1234 5678 9012 3456"
+      #cardNumber="ngModel"
+      [(ngModel)]="service.formData.cardNumber"
+      required
+      maxlength="19"
+      minlength="19"
+      [class.invalid]="cardNumber.invalid && cardNumber.touched"
+      appCreditCardNumber
+    />
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label>SECURITY CODE</label>
+      <input
+        type="password"
+        name="cvvCode"
+        class="form-control form-control-lg"
+        placeholder="CVV"
+        #cvvCode="ngModel"
+        [(ngModel)]="service.formData.cvvCode"
+        required
+        maxlength="3"
+        minlength="3"
+        [class.invalid]="cvvCode.invalid && cvvCode.touched"
+      />
+    </div>
+    <div class="form-group col-md-6">
+      <label>EXPIRY DATE</label>
+      <input
+        name="validationDate"
+        class="form-control form-control-lg"
+        placeholder="MM/YY"
+        #validationDate="ngModel"
+        [(ngModel)]="service.formData.validationDate"
+        required
+        maxlength="5"
+        minlength="5"
+        [class.invalid]="validationDate.invalid && validationDate.touched"
+        appCreditCardDate
+      />
+    </div>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="form.invalid">
+      Submit
+    </button>
+  </div>
+</form>

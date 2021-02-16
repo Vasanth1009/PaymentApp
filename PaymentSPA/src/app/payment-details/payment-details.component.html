@@ -3,7 +3,38 @@
 </div>
 
 <div class="row">
-  <div class="col-md-6 mx-auto">
+  <div class="pt-2 col-md-6">
     <app-payment-details-form></app-payment-details-form>
+  </div>
+  <div class="pt-2 col-md-6">
+    <table class="table">
+      <thead class="thead-light text-center">
+        <tr>
+          <th>Card Holder Name</th>
+          <th>Card Number</th>
+          <th>Expiry Date</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody class="text-center">
+        <tr *ngFor="let paymentdetail of service.list">
+          <td (click)="editRecord(paymentdetail)">
+            {{ paymentdetail.cardHolderName }}
+          </td>
+          <td (click)="editRecord(paymentdetail)">
+            {{ paymentdetail.cardNumber }}
+          </td>
+          <td (click)="editRecord(paymentdetail)">
+            {{ paymentdetail.validationDate }}
+          </td>
+          <td>
+            <i
+              class="fas fa-trash-alt fa-lg text-danger"
+              (click)="deleteRecord(paymentdetail.paymentDetailsId)"
+            ></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>

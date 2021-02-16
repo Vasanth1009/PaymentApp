@@ -1,7 +1,7 @@
 export class PaymentDetails {
   paymentDetailsId: number = 0;
   cardHolderName: string = '';
-  cardNumber: number ;
+  cardNumber: number;
   cvvCode: number;
   validationDate: string = '';
 }

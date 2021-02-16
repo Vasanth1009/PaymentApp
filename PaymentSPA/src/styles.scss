@@ -1,0 +1,82 @@
+$card-bgcolor: #171a1c;
+$card-border-radius: 1rem;
+$card-color: #47474e;
+$card-padding: 2rem;
+
+.card {
+  background-color: $card-bgcolor;
+  border-radius: $card-border-radius;
+  color: $card-color;
+  padding: $card-padding;
+  font-family: Abel;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+
+  &__header {
+    margin-bottom: 2rem;
+  }
+
+  &__title {
+    color: #fff;
+    float: left;
+    font-size: 2rem;
+  }
+
+  &__logo {
+    float: right;
+  }
+
+  &__number {
+    &__input {
+      &__first {
+        font-size: 2rem;
+      }
+      &__second {
+        font-size: 1rem;
+      }
+      &__third {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+
+label {
+  display: block;
+}
+
+.form-group {
+  margin-bottom: 0.5rem;
+}
+
+.form-group label {
+  color: grey;
+}
+
+$input-color: rgb(70, 70, 70);
+input {
+  background-color: transparent;
+  border: 0;
+  outline: none;
+  color: #fff;
+  font: inherit;
+  font-family: "Syne Mono", monospace;
+  width: 100%;
+}
+
+.form-group input::placeholder {
+  color: $input-color;
+}
+
+.form-group input.invalid {
+  color: red;
+}
+
+thead th {
+  font-weight: 600;
+}
+
+table tbody tr:hover {
+  background-color: #fffbf2;
+  cursor: pointer;
+}

@@ -46,6 +46,7 @@
       maxlength="19"
       minlength="19"
       [class.invalid]="cardNumber.invalid && cardNumber.touched"
+      appNumberOnly
       appCreditCardNumber
     />
   </div>
@@ -62,6 +63,7 @@
         maxlength="5"
         minlength="5"
         [class.invalid]="validationDate.invalid && validationDate.touched"
+        appNumberOnly
         appCreditCardDate
       />
     </div>
@@ -78,6 +80,7 @@
         maxlength="3"
         minlength="3"
         [class.invalid]="cvvCode.invalid && cvvCode.touched"
+        appNumberOnly
       />
     </div>
   </div>
@@ -95,6 +98,7 @@
       [(ngModel)]="service.formData.cardHolderName"
       required
       [class.invalid]="cardHolderName.invalid && cardHolderName.touched"
+      appAlphabetOnly
     />
   </div>
   <div class="form-group">

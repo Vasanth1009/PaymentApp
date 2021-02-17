@@ -3,14 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-
 import { AppComponent } from './app.component';
 import { PaymentDetailsComponent } from './payment-details/payment-details.component';
 import { PaymentDetailsFormComponent } from './payment-details/payment-details-form/payment-details-form.component';
-import {
-  CreditCardDateDirective,
-  CreditCardNumberDirective,
-} from './payment-details/payment-details-form/credit-card.directive';
+import { AlphabetOnlyDirective, CreditCardDateDirective, CreditCardNumberDirective, NumberOnlyDirective,} from './payment-details/payment-details-form/credit-card.directive';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -20,6 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
     PaymentDetailsFormComponent,
     CreditCardNumberDirective,
     CreditCardDateDirective,
+    NumberOnlyDirective,
+    AlphabetOnlyDirective
   ],
   imports: [
     BrowserModule,

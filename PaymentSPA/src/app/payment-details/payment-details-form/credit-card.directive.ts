@@ -1,4 +1,4 @@
-import { Directive, HostListener } from '@angular/core';
+import { Directive, ElementRef, HostListener } from '@angular/core';
 
 @Directive({
   selector: '[appCreditCardNumber]',
@@ -31,6 +31,7 @@ export class CreditCardDateDirective {
   constructor() {}
 
   @HostListener('input', ['$event'])
+
   onKeyDown(event: KeyboardEvent) {
     const input = event.target as HTMLInputElement;
 
@@ -45,5 +46,40 @@ export class CreditCardDateDirective {
     }
 
     input.value = numbers.join('/');
+  }
+}
+
+@Directive({
+  selector: '[appNumberOnly]',
+})
+export class NumberOnlyDirective {
+  constructor(private element: ElementRef) {}
+
+  @HostListener('input', ['$event'])
+
+  onInputChange(event: any) {
+    const initalValue = this.element.nativeElement.value;
+    this.element.nativeElement.value = initalValue.replace(/[^0-9]*/g, '');
+    if (initalValue !== this.element.nativeElement.value) {
+      event.stopPropagation();
+    }
+  }
+}
+
+@Directive({
+  selector: '[appAlphabetOnly]',
+})
+export class AlphabetOnlyDirective {
+  key: number;
+  @HostListener('keydown', ['$event']) onKeydown(event: KeyboardEvent) {    // tslint:disable-next-line: deprecation
+    this.key = event.keyCode;
+    console.log(this.key);
+    if (
+      (this.key >= 15 && this.key <= 64) ||
+      this.key >= 123 ||
+      (this.key >= 96 && this.key <= 105)
+    ) {
+      event.preventDefault();
+    }
   }
 }
